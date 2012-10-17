@@ -1,6 +1,6 @@
 include $(GOROOT)/src/Make.inc
 
-TARG=github.com/marshall/mockhttp.go
+TARG=github.com/marshall/mockhttp
 
 GOFILES=\
 	mockresponsewriter.go\

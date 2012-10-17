@@ -1,7 +1,7 @@
 package mockhttp_test
 
 import (
-	"github.com/marshall/mockhttp.go"
+	"github.com/marshall/mockhttp"
 	"net/http"
 	"strings"
 	"testing"

@@ -1,7 +1,6 @@
 package mockhttp
 
 import (
-	"github.com/tv42/mockhttp.go"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -27,7 +26,7 @@ func TestGET(t *testing.T) {
 	handler.ServeHTTP(respw, req)
 	want_hdr := make(http.Header)
 	want_hdr.Add("Content-Type", "text/plain; charset=utf-8")
-	mockhttp.CheckResponse(t, respw, http.StatusOK, want_hdr, "Hello, world.\n")
+	CheckResponse(t, respw, http.StatusOK, want_hdr, "Hello, world.\n")
 }
 
 func TestPUT(t *testing.T) {
@@ -40,5 +39,5 @@ func TestPUT(t *testing.T) {
 	want_hdr := make(http.Header)
 	want_hdr.Add("Content-Type", "text/plain; charset=utf-8")
 	want_hdr.Add("Allow", "GET")
-	mockhttp.CheckResponse(t, respw, http.StatusMethodNotAllowed, want_hdr, "Only GET supported.\n")
+	CheckResponse(t, respw, http.StatusMethodNotAllowed, want_hdr, "Only GET supported.\n")
 }

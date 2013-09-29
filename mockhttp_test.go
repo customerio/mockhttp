@@ -1,4 +1,4 @@
-package mockhttp_test
+package mockhttp
 
 import (
 	"github.com/tv42/mockhttp.go"
@@ -21,7 +21,7 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func TestGET(t *testing.T) {
 	handler := http.HandlerFunc(hello)
-	req := mockhttp.NewRequest("GET", "http://foo.example.com/bar", nil)
+	req := NewRequest("GET", "http://foo.example.com/bar", nil)
 	req.Header.Set("Content-Type", "text/plain; charset=utf-8")
 	respw := httptest.NewRecorder()
 	handler.ServeHTTP(respw, req)
@@ -33,7 +33,7 @@ func TestGET(t *testing.T) {
 func TestPUT(t *testing.T) {
 	handler := http.HandlerFunc(hello)
 	body := strings.NewReader(`foo`)
-	req := mockhttp.NewRequest("PUT", "http://foo.example.com/bar", body)
+	req := NewRequest("PUT", "http://foo.example.com/bar", body)
 	req.Header.Set("Content-Type", "text/plain; charset=utf-8")
 	respw := httptest.NewRecorder()
 	handler.ServeHTTP(respw, req)
